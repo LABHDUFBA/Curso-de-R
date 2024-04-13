@@ -1,6 +1,8 @@
 ---
 title: "Tutoriais - Usando o Reduce"
-format: html
+format:  
+  html:
+    embed-resources: true
 editor: visual
 author: Baruque Rodrigues (@baruqrodrigues)
 ---
