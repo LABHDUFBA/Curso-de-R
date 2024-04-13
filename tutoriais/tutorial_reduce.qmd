@@ -1,0 +1,108 @@
+---
+title: "Tutoriais - Usando o Reduce"
+format: html
+editor: visual
+author: Baruque Rodrigues (@baruqrodrigues)
+---
+
+## Tópicos sobre Programação Funcional
+
+#### Sobre o `reduce` e o `map`
+
+Em R, as funções **`reduce`** e **`map`** são utilizadas para manipular coleções de dados, como listas ou vetores, mas cada uma tem propósitos distintos e é adequada para diferentes tipos de operações. A ideia aqui é apresentar como utilizar essas funções para ganhar tempo e produtividade nas nossas rotinas de dados.
+
+#### O Uso do `reduce`
+
+A função **`reduce`** é parte do pacote {purrr} que faz parte do {tidyverse} e é usada para reduzir uma coleção de valores a um único valor. A operação de redução é realizada aplicando uma função que toma dois argumentos de entrada de cada vez, acumulando o resultado conforme percorre a coleção.
+
+\
+No exemplo abaixo vamos somar uma coleção de valores, existem algumas formas de fazer isso. A mais intuitiva é inserir os valores e o operador de soma.
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+```{r}
+1+2+3+4+5
+```
+
+Usando o purrr::reduce eu posso fazer essa operação de forma mais simples, no primeiro argumento indico o vetor de elementos que receberá a função, e no segundo a função que será executada acumulando o resultado enquanto percorre o vetor.
+
+```{r}
+purrr::reduce(1:5, # Vetor de Elementos que Receberá a Função
+              sum # Função que será executada acumulando o resultado 
+              )
+```
+
+**Quando usar:**
+
+-   Quando você precisa combinar elementos de uma lista ou vetor em um único resultado com base em uma operação específica.
+
+-   Operações comuns incluem a soma de números, a multiplicação de elementos ou a combinação de estruturas de dados mais complexas de uma maneira específica.
+
+### Exemplo Prático - Total de Vendas Mensais por Lojas
+
+Imagine que você está trabalhando com dados de vendas mensais de várias lojas e quer calcular o total de vendas anuais combinadas de todas as lojas. Aqui, cada coluna são vendas mensais de uma loja, e você quer somar todas as vendas de todos os meses de todas as lojas.
+
+```{r}
+tibble_vendas <- dplyr::tibble(
+  mes = 1:6,
+  vendas_loja_1 = c(12000, 13000, 11000, 14000, 15000, 14500),
+  vendas_loja_2 = c(11500, 12000, 13000, 13500, 14000, 12500),
+  vendas_loja_3 = c(13000, 13500, 14000, 14500, 15000, 15500))
+```
+
+Existem multiplas formas de executar essa tarefa, todavia por critérios pedagógicos, vamos fazer utilizando o {tidyverse}. Na primeira abordagem vamos fazer a soma sem utilizar o reduce e na segunda vamos utilizá-lo, assim podemos comparar os resultados e o quão difícil é implementá-lo.
+
+```{r}
+
+tibble_vendas %>% 
+  mutate(
+    # Sem o reduce só executamos a soma indicando as colunas
+    total_vendas = vendas_loja_1 + vendas_loja_2 + vendas_loja_3,
+    # No reduce precisamos indicar que queremos remover a coluna mes
+    # para que ela não seja inserida no calculo
+    total_vendas_via_reduce = reduce(tibble_vendas %>%
+                                     select(-mes), `+`)
+         )
+
+```
+
+Sem o reduce só executamos a soma indicando as colunas já no reduce precisamos indicar que queremos remover a coluna mes para que ela não seja inserida no cálculo. Em uma primeira vista fazer uso do reduce, ou aprender ele não faz sentido já que é mais viável inserir os calculos na mão, correto? Vendo o exemplo acima, tenho que concordar com você, é melhor indicar manualmente as colunas do que aprender o uso de uma nova função.
+
+Preparei o Exemplo abaixo pra tentar te fazer mudar de ideia
+
+```{r, echo=FALSE}
+dataset_com_muitas_lojas <- 
+map(
+  1:365,
+  ~ {
+    nome_loja <- paste0("vendas_loja_", .x)
+    
+    rlang::sym(nome_loja)
+    
+    tibble(
+      
+      !!nome_loja := rnorm(6, 12500, 1500))
+    }
+    ) %>% 
+  list_cbind() %>% 
+  mutate(mes = 1:6, .before = 1)
+```
+
+No dataset com muitas lojas as vendas de 6 meses para 365 lojas, nesse caso calculas o total de vendas sem utilizar o reduce é humanamente impossível.
+
+```{r}
+dataset_com_muitas_lojas 
+```
+
+Por mais que aprender funções novas seja complicado, por te fazer gastar tempo que você poderia estar alocando em resolver problemas, ele se paga em pouquíssimo tempo, já que o ganho que produtividade vai ser cumulativo pro resto da sua vida.
+
+```{r}
+dataset_com_muitas_lojas %>% 
+  reframe(
+   # total_vendas = vendas_loja_1 + vendas_loja_2 + vendas_loja_3,
+    total_vendas_via_reduce = reduce(dataset_com_muitas_lojas %>%
+                                     select(-mes), `+`)
+         )
+```
