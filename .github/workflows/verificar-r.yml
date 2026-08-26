@@ -1,0 +1,18 @@
+name: Verificar scripts R
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  fundamentos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+      - name: Executar exercício de fundamentos
+        run: Rscript 01-fundamentos/exercicios/01-objetos-vetores-dataframes.R
