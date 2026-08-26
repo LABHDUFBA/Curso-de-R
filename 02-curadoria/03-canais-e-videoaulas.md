@@ -19,6 +19,10 @@
 - [Daniel Quintana](https://www.youtube.com/@dsquintana) — práticas de pesquisa, comunicação científica e reprodutibilidade.
 - [Quaest Pesquisa](https://www.youtube.com/@quaestpesquisa) — exemplo de comunicação pública baseada em pesquisas e dados.
 
+## Exemplo prático: visualização de dados como arte
+
+- [Icaro Bernardes](https://github.com/IcaroBernardes) — considerado o maior artista de dados do Brasil. Seus repositórios reúnem visualizações que mostram como R pode ir além do gráfico funcional e tornar-se expressão estética. Estudar esse acervo ajuda a entender `ggplot2`, camadas temáticas, paletas e composição visual no mais alto nível. Veja, reproduza e adapte.
+
 ## Uso responsável de vídeo-aulas
 
 Vídeos são apoio, não atalho. Antes de avançar, pause, reescreva o código sem copiar e adapte-o a uma base diferente. Se o resultado não puder ser explicado, a etapa ainda não está concluída.
