@@ -28,13 +28,14 @@ git clone https://github.com/LABHDUFBA/Curso-de-R.git
 |---|---|---|
 | 0 | Começo: R, RStudio e projetos | [guia](00-comeco/README.md) |
 | 1 | Objetos, vetores e data frames | [exercícios](01-fundamentos/exercicios/01-objetos-vetores-dataframes.R) |
-| 2 | Manipulação de dados | `script aula 2 - saindo do 0 na manipulacao de dados.R` |
-| 3 | Importação e transformação de bases | `Script Aula 3 - Manipulando quase qualquer base.R` |
-| 4 | Textos e expressões regulares | `Script Aula 4 - manipulacao_de_textos.R` |
-| 5 | Visualização com ggplot2 | `aula_5_o_basico_da_gramatica_dos_graficos.R` |
-| 6 | Visualizações avançadas | `aula_6_levando_o_ggplot_alem.R` |
-| 7 | Programação funcional | `aula_7_programacao_funcional.R` |
-| 8 | Projeto final reprodutível | [roteiro](08-projeto-final/README.md) |
+| 2 | Curadoria: livros, vídeo-aulas e prática interativa | [mapa de recursos](02-curadoria/README.md) |
+| 3 | Manipulação de dados | `script aula 2 - saindo do 0 na manipulacao de dados.R` |
+| 4 | Importação e transformação de bases | `Script Aula 3 - Manipulando quase qualquer base.R` |
+| 5 | Textos e expressões regulares | `Script Aula 4 - manipulacao_de_textos.R` |
+| 6 | Visualização com ggplot2 | `aula_5_o_basico_da_gramatica_dos_graficos.R` |
+| 7 | Visualizações avançadas | `aula_6_levando_o_ggplot_alem.R` |
+| 8 | Programação funcional | `aula_7_programacao_funcional.R` |
+| 9 | Projeto final reprodutível | [roteiro](08-projeto-final/README.md) |
 
 Os materiais originais permanecem no repositório e são gradualmente organizados por essa trilha. A pasta `legado/` reúne versões anteriores e scripts de apoio.
 
