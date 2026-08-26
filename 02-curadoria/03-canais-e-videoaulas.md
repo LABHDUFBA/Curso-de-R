@@ -22,5 +22,3 @@
 ## Uso responsável de vídeo-aulas
 
 Vídeos são apoio, não atalho. Antes de avançar, pause, reescreva o código sem copiar e adapte-o a uma base diferente. Se o resultado não puder ser explicado, a etapa ainda não está concluída.
-
-> **Exclusão:** o material associado a Hugo Medeiros foi intencionalmente deixado fora desta lista.
