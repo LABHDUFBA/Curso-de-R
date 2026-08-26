@@ -4,6 +4,8 @@ Repositório aberto do **Laboratório de Humanidades Digitais da UFBA (LABHDUFBA
 
 A trilha parte da pergunta que organiza a apresentação-base do curso — *Como aprender R?* — e transforma o material acumulado nas aulas em um percurso navegável: cada módulo tem objetivos claros, scripts executáveis, exercícios e referências.
 
+> **Créditos e origem:** este repositório é uma modificação do repositório de aulas de [Baruque Rodrigues](https://www.linkedin.com/in/baruquerodrigues). O LABHDUFBA preserva essa atribuição e organiza adaptações e materiais complementares para fins didáticos.
+
 ## Para quem é
 
 Para pessoas sem experiência prévia em programação que querem usar R para ler, organizar, analisar e comunicar dados. Não é necessário saber estatística para iniciar; os exemplos avançam gradualmente.
